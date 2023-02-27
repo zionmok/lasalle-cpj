@@ -1,0 +1,498 @@
+/* **********************************************************
+ * default style that take care of the default layout 
+ * and typography.
+ * ********************************************************** */
+
+
+
+/* **********************************************************
+ * let's get started and do a default reset
+ * ********************************************************** */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+html {
+    color-scheme: dark light;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+svg,
+video {
+    display: block;
+    max-width: 100%;
+    border-radius: 0.5rem;
+}
+
+/* **********************************************************
+ * now let's take care of our main layout and content
+ *
+ * 1. header and main-navigation
+ * 2. weekly 
+ * 3. footer
+ * 4. main layout
+ * 
+ * ********************************************************** */
+
+
+/* 1. header and main-navigation */
+
+header {
+    top: 0;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+
+.main__title > *,
+.main__nav {
+    width: auto;
+    color: var(--color-title);
+    text-align: center;
+    margin: var(--spacing-s);
+}
+
+.main__title,
+.main__nav>ul {
+    display: flex;
+    justify-content:space-between;
+    width: 100%;
+    padding-bottom: var(--spacing-s);
+    padding-right: var(--spacing-m);
+}
+
+.main__title>* {
+    font-size: var(--font-size-title);
+}
+
+.main__nav>ul {
+    position: fixed;
+    bottom: 0;
+}
+
+.main__title a,
+.main__nav>ul>li>a {
+    font-size: var(--font-size-title);
+    color: var(--color-nav-link);
+    transition: color 0.5s;
+}
+.main__title a:hover {
+    color: var(--color-0);
+}
+
+.main__title a:hover::before {
+    content: '\00a0\2190';
+    margin-right:var(--spacing-s);
+    transition: all 0.5s;
+    
+}
+
+.main__nav>ul>li a:hover {
+    /* color: var(--color-nav-link-hover); */
+    text-decoration: overline;
+}
+
+/* 2. weekly */
+
+.weekly>h2 {
+    font-weight: 400;
+    font-size: var(--font-size-m);
+}
+
+.weekly>ul>li {
+    padding: var(--spacing-xs) 0;
+    border-bottom: 1px solid var(--color-5);
+}
+
+.weekly>ul>li:first-child {
+    border-top: 1px solid var(--color-5);
+}
+
+
+.weekly>ul>li>a {
+    color: var(--color-5);
+    transition: color 0.25s;
+    display: block;
+}
+
+.weekly>ul>li>a:hover {
+    color: var(--color-0);
+}
+
+.hangingindent {
+    padding-left: 17px ;
+    text-indent: -17px ;
+  }
+
+
+/* 3. footer */
+
+footer {
+    min-height: 8rem;
+    text-align: center;
+    padding-top: var(--spacing-m);
+}
+
+/* 4. main layout */
+
+.row {
+    align-items: start;
+}
+
+.row,
+.row>ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto;
+    gap: var(--spacing-s);
+}
+
+.column,
+.row>ul>li {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.column__half {
+    display: flex;
+    flex-direction: column;
+    flex: 150%;
+}
+
+.column__double {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 2;
+}
+
+.column__four {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 4;
+}
+
+.column__five {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 5;
+}
+
+.column__1-5 {
+    flex: 1;
+}
+
+.column__2-5 {
+    flex: 2;
+}
+
+.column__3-5 {
+    flex: 3;
+}
+
+.column__4-5 {
+    flex: 4;
+}
+
+/* **********************************************************
+ * Main typography
+ * ********************************************************** */
+
+h1 {
+    font-weight: 800;
+    font-size: var(--font-size-xl);
+}
+
+h2 {
+    font-weight: 500;
+    font-size: var(--font-size-s);
+    text-decoration: underline ;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: var(--font-size-s);
+    font-style: italic;
+}
+
+h4 {
+    font-weight: 700;
+    font-size: var(--font-size-s);
+}
+
+h5 {
+    font-size: var(--font-size-m);
+    font-weight: 800;
+}
+
+h6 {
+    font-weight: 500;
+    text-decoration-color: var(--color-0); 
+    font-size: var(--font-size-xs);
+    margin-bottom: var(--spacing-xs);
+    font-style: italic;
+}
+
+a {
+    text-decoration: none;
+    transition: color, text-decoration-color 0.3s;
+    font-size: var(--font-size-s);
+}
+
+ul {
+    list-style-type: none;
+}
+
+p {
+    font-size: var(--font-size-s);
+    font-weight: 500;
+}
+
+
+/* **********************************************************
+ * Paragraph styling
+ * ********************************************************** */
+
+
+p:not(:last-child) {
+    margin-bottom: var(--spacing-s);
+}
+
+.p__size-l {
+    font-size: var(--font-size-l);
+}
+
+.p__size-m {
+    font-size: var(--font-size-m);
+}
+
+.p__size-s {
+    font-size: var(--font-size-s);
+}
+
+.p__size-xs {
+    font-size: var(--font-size-xs);
+}
+
+.p__width-l {
+    width: 100%;
+}
+
+.p__width-m {
+    width: 60%;
+    min-width: 20rem;
+}
+
+.p__width-s {
+    width: 40%;
+    min-width: 15rem;
+}
+
+.p__width-xs {
+    width: 20%;
+    min-width: 10rem;
+}
+
+.p__width-xxs {
+    width: 10%;
+    min-width: 5rem;
+}
+
+.right-align {
+    text-align: right;
+}
+
+
+/* **********************************************************
+ * special features           
+ * 1. lightbox
+ * ********************************************************** */
+
+.sticky {
+    position: sticky;
+    top: var(--spacing-m);
+}
+
+.video__container {
+    margin: 0px;
+  }
+  
+
+/* 1. lightbox
+ * click on an image (must implement class="zoom") to go full size 
+ * from: https://code-boxx.com/image-zoom-css-javascript
+ */
+
+#lightbox {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity ease 0.3s;
+}
+
+#lightbox.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+#lightbox img {
+    width:auto;
+    height: 90%;
+    /* object-fit: cover; */
+}
+
+.zoom {
+    cursor: pointer;
+    
+}
+
+/* ********************************************************** */
+/* debug, when enabled, useful to see the layout-boxes for    */
+/* sections and divs.                                         */
+/* ********************************************************** */
+
+section {
+    border: 1px solid green;
+}
+
+div, ul, li {
+    border: 1px solid red;
+}
+
+ul, li {
+    border: 1px solid blue;
+}
+
+section,
+div, ul, li {
+    border: 0;
+}
+
+.outline {
+    border: 1px dotted black;
+}
+
+
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+#rcorners1 {
+  border-radius: 25px;
+}
