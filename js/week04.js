@@ -31,6 +31,11 @@ window.onload = () => {
 
       let aPrev = document.createElement("a");
       aPrev.href = ("#item" + prevNumber);
+      // aPrev.onclick = function(e){
+      //   window.location = e.target.href;
+        
+      //   console.log(e.target.href);
+      // }
       aPrev.className = "arrow-prev arrow";
       
 
