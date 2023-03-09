@@ -15,43 +15,47 @@ window.onload = () => {
     for (let i = 1; i <= 13; i++){
       images.push( 'week02/deck-' + i + '.jpg');
     }
+
+    let currIndex = 0;
+    const carouselNumber = 0;
+    const carouselBody = document.getElementById("carousel-inner-" + carouselNumber);
     
-    const carouselBody = document.getElementById("carousel-body");
 
     for (let i = 0; i < images.length; i++){
 
-      const nextNumber = i + 1 > images.length-1 ? 0 : i + 1;
-      const prevNumber = i - 1 < 0 ? images.length-1 : i - 1;
+     
       let div = document.createElement("div");
-      div.className = ("carousel-item item "  + (i == 0 ? "first-item" : "")) ;
+      let img = document.createElement("img");
+      div.className = ("carousel-item " + (i == 0? "active": ""));
+      div.setAttribute("data-interval", "999999")
       const imagePath = folderPrefix + images[i];
-      div.style = ("background-image: url('" + imagePath + "')") ;
-      div.id = ("item" + i);
-
-      let aPrev = document.createElement("a");
-      aPrev.href = ("#item" + prevNumber);
-      // aPrev.onclick = function(e){
-      //   window.location = e.target.href;
-        
-      //   console.log(e.target.href);
-      // }
-      aPrev.className = "arrow-prev arrow";
+      img.src = imagePath;
+      img.className = "d-block w-100 no-radius"
+      div.appendChild(img);
+      carouselBody.appendChild(div);
       
 
-      let aNext = document.createElement("a");
-      aNext.href = ("#item" + nextNumber);
-      // aNext.onclick = function(e){
-      //   window.location = e.target.href;
-      //   console.log(e.target.href);
-
-      // }
-      aNext.className = "arrow-next arrow";
-
-      carouselBody.appendChild(div);
-      div.appendChild(aPrev);
-      div.appendChild(aNext);
       
     }
+
+    let all = document.getElementsByClassName("zoom"),
+    lightbox = document.getElementById("lightbox");
+
+    if (all.length>0) { for (let i of all) {
+      i.onclick = () => {
+        let clone = i.cloneNode();
+        clone.className = "";
+        lightbox.innerHTML = "";
+        lightbox.appendChild(clone);
+        lightbox.className = "show";
+      };
+    }}
+
+    lightbox.onclick = () => {
+      lightbox.className = "";
+    };
+
+
 
 
   };

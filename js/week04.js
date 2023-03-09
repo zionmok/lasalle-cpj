@@ -7,52 +7,91 @@ window.onload = () => {
     
     const folderPrefix = "/assets/images/";
 
-    // put in images 1 by 1
-    // let images = ['week02/deck-1.jpg', 'week02/deck-2.jpg', ];
-
-    // loop starts at i = start 
-    // ends at i <= end
     let images = [];
     for (let i = 1; i <= 8; i++){
       images.push( 'week04/jiaxiang-0' + i + '.png');
     }
-    
-    const carouselBody = document.getElementById("carousel-body");
 
+
+    let carouselNumber = 0;
+    let carouselBody = document.getElementById("carousel-inner-" + carouselNumber);
     for (let i = 0; i < images.length; i++){
 
-      const nextNumber = i + 1 > images.length-1 ? 0 : i + 1;
-      const prevNumber = i - 1 < 0 ? images.length-1 : i - 1;
       let div = document.createElement("div");
-      div.className = ("carousel-item item "  + (i == 0 ? "first-item" : "")) ;
+      let img = document.createElement("img");
+      div.className = ("carousel-item " + (i == 0? "active": ""));
+      div.setAttribute("data-interval", "999999")
       const imagePath = folderPrefix + images[i];
-      div.style = ("background-image: url('" + imagePath + "')") ;
-      div.id = ("item" + i);
-
-      let aPrev = document.createElement("a");
-      aPrev.href = ("#item" + prevNumber);
-      // aPrev.onclick = function(e){
-      //   window.location = e.target.href;
-        
-      //   console.log(e.target.href);
-      // }
-      aPrev.className = "arrow-prev arrow";
-      
-
-      let aNext = document.createElement("a");
-      aNext.href = ("#item" + nextNumber);
-      // aNext.onclick = function(e){
-      //   window.location = e.target.href;
-      //   console.log(e.target.href);
-
-      // }
-      aNext.className = "arrow-next arrow";
-
+      img.src = imagePath;
+      img.className = "d-block w-100 no-radius"
+      div.appendChild(img);
       carouselBody.appendChild(div);
-      div.appendChild(aPrev);
-      div.appendChild(aNext);
       
     }
+
+
+
+    carouselNumber = 1;
+    carouselBody = document.getElementById("carousel-inner-" + carouselNumber);
+ 
+    images = [];
+    for (let i = 1; i <= 13; i++){
+      images.push( 'week02/deck-' + i + '.jpg');
+    }
+    
+    for (let i = 0; i < images.length; i++){
+      let div = document.createElement("div");
+      let img = document.createElement("img");
+      div.className = ("carousel-item " + (i == 0? "active": ""));
+      div.setAttribute("data-interval", "999999")
+      const imagePath = folderPrefix + images[i];
+      img.src = imagePath;
+      img.className = "d-block w-100 no-radius"
+      div.appendChild(img);
+      carouselBody.appendChild(div);
+    }
+
+
+    carouselNumber = 2;
+    carouselBody = document.getElementById("carousel-inner-" + carouselNumber);
+ 
+    images = [];
+    for (let i = 1; i <= 2; i++){
+      images.push( 'week04/worksheet-' + i + '.jpg');
+    }
+    
+    for (let i = 0; i < images.length; i++){
+      let div = document.createElement("div");
+      let img = document.createElement("img");
+      div.className = ("carousel-item " + (i == 0? "active": ""));
+      div.setAttribute("data-interval", "999999")
+      const imagePath = folderPrefix + images[i];
+      img.src = imagePath;
+      img.className = "d-block w-100 no-radius"
+      div.appendChild(img);
+      carouselBody.appendChild(div);
+    }
+
+
+
+//lightbox zoom
+    let all = document.getElementsByClassName("zoom"),
+    lightbox = document.getElementById("lightbox");
+
+if (all.length>0) { for (let i of all) {
+  i.onclick = () => {
+    let clone = i.cloneNode();
+    clone.className = "";
+    lightbox.innerHTML = "";
+    lightbox.appendChild(clone);
+    lightbox.className = "show";
+  };
+}}
+
+lightbox.onclick = () => {
+  lightbox.className = "";
+};
+
 
 
   };
