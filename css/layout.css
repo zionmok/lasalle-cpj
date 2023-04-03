@@ -322,6 +322,10 @@ p:not(:last-child) {
     text-align: right;
 }
 
+.centre-align {
+    text-align:center;
+}
+
 
 /* **********************************************************
  * special features           
@@ -350,7 +354,7 @@ p:not(:last-child) {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
 
     display: flex;
     align-items: center;
@@ -370,7 +374,7 @@ p:not(:last-child) {
 #lightbox img {
     width:auto;
     height: 90%;
-    /* object-fit: cover; */
+    object-fit: contain;
 }
 
 .zoom {

@@ -26,7 +26,7 @@
     --color-5: #f6f6f6;
     
     --color-link: var(--color-1);
-    --color-link-hover: var(--color-1);
+    --color-link-hover: var(--color-0);
     --color-title:var(--color-0);
     --color-nav-link: var(--color-title);
     --color-nav-link-hover: var(--color-0);
@@ -322,7 +322,7 @@
 
 
 /* **********************************************************
- * Custom colors
+ * Custom s
  * ********************************************************** */
 
 .color__bg-0 {
