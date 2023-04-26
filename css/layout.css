@@ -221,6 +221,7 @@ footer {
 h1 {
     font-weight: 800;
     font-size: var(--font-size-xl);
+    line-height: 1em;
 }
 
 h2 {

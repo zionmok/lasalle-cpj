@@ -22,8 +22,11 @@
     --color-0: rgb(45, 45, 45); 
     --color-1: rgb(86, 94, 167);
     --color-2: rgb(236, 87, 102);
+    --color-3: #63a12d;
     --color-4: #f6f6f6;
     --color-5: #f6f6f6;
+
+
     
     --color-link: var(--color-1);
     --color-link-hover: var(--color-0);
