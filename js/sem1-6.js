@@ -7,8 +7,8 @@ window.onload = () => {
   const folderPrefix = "/assets/images/sem1/";
 
   images = [];
-  for (let i = 5; i <= 7; i++){
-    images.push( 'week1/week1-' + i + '.png');
+  for (let i = 1; i <= 4; i++){
+    images.push( 'week6-' + i + '.png');
   }
 
     carouselNumber = 0;
